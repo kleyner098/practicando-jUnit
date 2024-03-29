@@ -8,7 +8,7 @@ public class Peluqueria {
 
     // Este método debería devolver el array diasApertura
     public String[] getDiasApertura() {
-        return new String[]{};
+        return diasApertura;
     }
 
     /* Este método debería devolver verdadero si un día de la semana está 
@@ -18,7 +18,17 @@ public class Peluqueria {
      * que no sean fin de semana son válidos.
     */
     public boolean estaAbierto(String diaSemana) {
-        return false;
+        boolean abierto = false;
+        if(diaSemana.endsWith("es")){
+            for (int i = 0; i < diasApertura.length; i++) {
+                if (diasApertura[i].toLowerCase().equals(diaSemana.toLowerCase())) {
+                    abierto = true;
+                }
+            }
+        }else{
+            throw new IllegalArgumentException("No es un día de la semana");
+        }
+        return abierto;
     }
 
 
