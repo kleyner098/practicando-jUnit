@@ -1,15 +1,31 @@
-
 package practicando.junit;
+
 import java.util.Arrays;
 
 public class Peluqueria {
 
+    enum Dia{
+        LUNES,
+        MARTES,
+        MIERCOLES,
+        JUEVES,
+        VIERNES,
+        SABADO,
+        DOMINGO
+    }
+    // private Dia[] diasApertura = {Dia.LUNES,Dia.MARTES};
     private String[] diasApertura = {"Lunes", "Martes"};
+    private int precioCortePelo = 30;
+    private Calculadora calc = new Calculadora();
 
     // Este método debería devolver el array diasApertura
     public String[] getDiasApertura() {
         return diasApertura;
     }
+    // public Dia[] getDiasApertura() {
+    //     return diasApertura;
+    // }
+
 
     /* Este método debería devolver verdadero si un día de la semana está 
      * presente en el array diasApertura. Si no debería devolver falso.
@@ -31,8 +47,22 @@ public class Peluqueria {
         return abierto;
     }
 
+    // public boolean estaAbierto(Dia diaSemana) {
+    //     boolean abierto = false;
+    //     if (Arrays.asList(diasApertura).contains(diaSemana)) {
+    //             abierto = true;
+    //     }
+    //     return abierto;
+    // }
+
+    public int getPrecioCortePelo() {
+        return precioCortePelo;
+    }
 
 
+    public int aplicarDescuento(){
+        return calc.dividir(precioCortePelo, 2) + 5;
+    }
 
 
 
